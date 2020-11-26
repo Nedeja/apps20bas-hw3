@@ -59,8 +59,16 @@ public class SmartArrayApp {
             public boolean test(Object t) {
                 final int grade = 4;
                 final int year = 2;
-                return ((Student) t).getGPA() <= grade &&
+                return ((Student) t).getGPA() >= grade &&
                         ((Student) t).getYear() == year;
+            }
+        };
+
+        MyComparator sortBySurname = new MyComparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return ((Student) o1).getSurname().compareTo(
+                        ((Student) o2).getSurname());
             }
         };
 
@@ -72,13 +80,6 @@ public class SmartArrayApp {
             }
         };
 
-        MyComparator sortBySurname = new MyComparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return ((Student) o1).getSurname().compareTo(
-                        ((Student) o2).getSurname());
-            }
-        };
 
         SmartArray smartArray = new BaseArray(students);
         smartArray = new DistinctDecorator(smartArray);
