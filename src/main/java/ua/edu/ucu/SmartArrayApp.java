@@ -59,7 +59,7 @@ public class SmartArrayApp {
             public boolean test(Object t) {
                 final int grade = 4;
                 final int year = 2;
-                return ((Student) t).getGPA() <= grade &&
+                return ((Student) t).getGPA() >= grade &&
                         ((Student) t).getYear() == year;
             }
         };
